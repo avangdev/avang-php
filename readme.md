@@ -1,7 +1,7 @@
 
 install with: 
 
-``` composer require --prefer-dist avangdev/avang-php dev-master```
+``` composer require --prefer-dist avangdev/avang-php```
 
 Or download the package
 
