@@ -30,7 +30,7 @@ $config = new AvangEmailApi_Config(array(
     'components' => array(
         'cache' => array(
             'class'     => 'AvangEmailApi_Cache_File',
-            'filesPath' => dirname(__FILE__) . 'vendor/avangdev/avang-php/AvangEmailApi/Cache/data/cache', // make sure it is writable by webserver
+            'filesPath' => dirname(__FILE__) . '/vendor/avangdev/avang-php/AvangEmailApi/Cache/data/cache', // make sure it is writable by webserver
         )
 
     ),
