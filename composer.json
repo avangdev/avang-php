@@ -1,0 +1,14 @@
+{
+  "name": "avangdev/avang-php",
+  "type": "library",
+  "description": "AvangEmail PHP-SDK",
+  "keywords": ["AvangEmail"],
+  "homepage": "https://www.avangemail.com",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.2"
+  },
+  "autoload": {
+    "files": ["AvangEmailApi/autoload.php"]
+  }
+}
