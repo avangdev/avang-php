@@ -1,6 +1,7 @@
 <?php
 
 // require the autoloader class if you haven't used composer to install the package
+// if you use composer without framework, require autoload which available in vendeor directory
 require_once dirname(__FILE__) . '/../AvangEmailApi/Autoloader.php';
 
 // register the autoloader if you haven't used composer to install the package
@@ -17,9 +18,10 @@ $config = new AvangEmailApi_Config(array(
     'privateKey'    => 'PRIVATE-KEY',
 
     // components
+	// change the filesPath to point the correct yii cache components which available in the vendor directory
     'components' => array(
         'cache' => array(
-            'class'     => 'AvangEmailApi_Cache_File',
+            'class'     => 'AvangEmailApi_Cache_File',			
             'filesPath' => dirname(__FILE__) . '/../AvangEmailApi/Cache/data/cache', // make sure it is writable by webserver
         )
     ),
