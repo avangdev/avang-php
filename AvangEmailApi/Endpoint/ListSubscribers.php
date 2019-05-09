@@ -7,14 +7,14 @@
  * @copyright 2013-2017 http://www.mailwizz.com/
  */
 /**
- * AvangEmailApi_Endpoint_ListSegments handles all the API calls for lists subscribers.
+ * AvangEmailApi_Endpoint_ListSubscribers handles all the API calls for lists subscribers.
  *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package AvangEmailApi
  * @subpackage Endpoint
  * @since 1.0
  */
-class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
+class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
 {
     /**
      * Get subscribers from a certain mail list
