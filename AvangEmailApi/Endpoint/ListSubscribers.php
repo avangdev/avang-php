@@ -7,10 +7,10 @@
  * @copyright 2013-2017 http://www.mailwizz.com/
  */
 /**
- * MailWizzApi_Endpoint_ListSubscribers handles all the API calls for lists subscribers.
+ * AvangEmailApi_Endpoint_ListSegments handles all the API calls for lists subscribers.
  *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
- * @package MailWizzApi
+ * @package AvangEmailApi
  * @subpackage Endpoint
  * @since 1.0
  */
@@ -24,7 +24,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      * @param string $listUid
      * @param integer $page
      * @param integer $perPage
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function getSubscribers($listUid, $page = 1, $perPage = 10)
     {
@@ -46,7 +46,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      *
      * @param string $listUid
      * @param string $subscriberUid
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function getSubscriber($listUid, $subscriberUid)
     {
@@ -63,7 +63,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      *
      * @param string $listUid
      * @param array $data
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function create($listUid, array $data)
     {
@@ -80,7 +80,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      * @param string $listUid
      * @param string $subscriberUid
      * @param array $data
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function update($listUid, $subscriberUid, array $data)
     {
@@ -96,7 +96,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      *
      * @param string $listUid
      * @param string $subscriberUid
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function unsubscribe($listUid, $subscriberUid)
     {
@@ -112,7 +112,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      *
      * @param string $listUid
      * @param string emailAddress
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function unsubscribeByEmail($listUid, $emailAddress)
     {
@@ -135,7 +135,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      * Unsubscribe existing subscriber by email address from all lists
      *
      * @param string emailAddress
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function unsubscribeByEmailFromAllLists($emailAddress)
     {
@@ -153,7 +153,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      *
      * @param string $listUid
      * @param string $subscriberUid
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function delete($listUid, $subscriberUid)
     {
@@ -169,7 +169,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      *
      * @param string $listUid
      * @param string emailAddress
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function deleteByEmail($listUid, $emailAddress)
     {
@@ -185,7 +185,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      *
      * @param string $listUid
      * @param string $emailAddress
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function emailSearch($listUid, $emailAddress)
     {
@@ -198,10 +198,9 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
     }
     /**
      * Search in a all lists for given subscriber by email address
-     * Please note that this is available only for mailwizz >= 1.3.6.2
      *
      * @param string $emailAddress
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function emailSearchAllLists($emailAddress)
     {
@@ -220,7 +219,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
 	 * @param int $page
 	 * @param int $perPage
 	 *
-	 * @return MailWizzApi_Http_Response
+	 * @return AvangEmailApi_Http_Response
 	 */
 	public function searchByCustomFields($listUid, array $fields = array(), $page = 1, $perPage = 10)
 	{
@@ -240,7 +239,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      *
      * @param string $listUid
      * @param array $data
-     * @return MailWizzApi_Http_Response
+     * @return AvangEmailApi_Http_Response
      */
     public function createUpdate($listUid, $data)
     {
