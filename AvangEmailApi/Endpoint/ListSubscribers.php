@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the list segments endpoint for AvangEmailApi PHP-SDK.
+ * This file contains the lists subscribers endpoint for AvangEmailApi PHP-SDK.
  *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link http://www.mailwizz.com/
@@ -28,8 +28,8 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
      */
     public function getSubscribers($listUid, $page = 1, $perPage = 10)
     {
-        $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_GET,
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_GET,
             'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers', $listUid)),
             'paramsGet'     => array(
                 'page'      => (int)$page,
@@ -50,8 +50,8 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
      */
     public function getSubscriber($listUid, $subscriberUid)
     {
-        $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_GET,
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_GET,
             'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s', (string)$listUid, (string)$subscriberUid)),
             'paramsGet'     => array(),
             'enableCache'   => true,
@@ -67,8 +67,8 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
      */
     public function create($listUid, array $data)
     {
-        $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_POST,
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_POST,
             'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers', (string)$listUid)),
             'paramsPost'    => $data,
         ));
@@ -84,8 +84,8 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
      */
     public function update($listUid, $subscriberUid, array $data)
     {
-        $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_PUT,
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_PUT,
             'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s', (string)$listUid, (string)$subscriberUid)),
             'paramsPut'     => $data,
         ));
@@ -100,8 +100,8 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
      */
     public function unsubscribe($listUid, $subscriberUid)
     {
-        $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_PUT,
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_PUT,
             'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s/unsubscribe', (string)$listUid, (string)$subscriberUid)),
             'paramsPut'     => array(),
         ));
@@ -139,8 +139,8 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
      */
     public function unsubscribeByEmailFromAllLists($emailAddress)
     {
-        $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_PUT,
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_PUT,
             'url'           => $this->config->getApiUrl('lists/subscribers/unsubscribe-by-email-from-all-lists'),
             'paramsPut'     => array(
                 'EMAIL' => $emailAddress,
@@ -157,8 +157,8 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
      */
     public function delete($listUid, $subscriberUid)
     {
-        $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_DELETE,
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_DELETE,
             'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s', (string)$listUid, (string)$subscriberUid)),
             'paramsDelete'  => array(),
         ));
@@ -189,8 +189,8 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
      */
     public function emailSearch($listUid, $emailAddress)
     {
-        $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_GET,
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_GET,
             'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/search-by-email', (string)$listUid)),
             'paramsGet'     => array('EMAIL' => (string)$emailAddress),
         ));
@@ -198,42 +198,37 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
     }
     /**
      * Search in a all lists for given subscriber by email address
+     * Please note that this is available only for mailwizz >= 1.3.6.2
      *
      * @param string $emailAddress
      * @return AvangEmailApi_Http_Response
      */
     public function emailSearchAllLists($emailAddress)
     {
-        $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_GET,
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_GET,
             'url'           => $this->config->getApiUrl('lists/subscribers/search-by-email-in-all-lists'),
             'paramsGet'     => array('EMAIL' => (string)$emailAddress),
         ));
         return $response = $client->request();
     }
-	/**
-	 * Search in a list by custom fields
-	 * 
-	 * @param $listUid
-	 * @param array $fields
-	 * @param int $page
-	 * @param int $perPage
-	 *
-	 * @return AvangEmailApi_Http_Response
-	 */
-	public function searchByCustomFields($listUid, array $fields = array(), $page = 1, $perPage = 10)
-	{
-		$paramsGet = $fields;
-		$paramsGet['page']      = (int)$page;
-		$paramsGet['per_page']  = (int)$perPage;
-		
-		$client = new MailWizzApi_Http_Client(array(
-			'method'        => MailWizzApi_Http_Client::METHOD_GET,
-			'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/search-by-custom-fields', (string)$listUid)),
-			'paramsGet'     => $paramsGet,
-		));
-		return $response = $client->request();
-	}
+    /**
+     * Search in a list by custom fields
+     *
+     * @param $listUid
+     * @param array $fields
+     *
+     * @return AvangEmailApi_Http_Response
+     */
+    public function searchByCustomFields($listUid, array $fields = array())
+    {
+        $client = new AvangEmailApi_Http_Client(array(
+            'method'        => AvangEmailApi_Http_Client::METHOD_GET,
+            'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/search-by-custom-fields', (string)$listUid)),
+            'paramsGet'     => $fields,
+        ));
+        return $response = $client->request();
+    }
     /**
      * Create or update a subscriber in given list
      *
