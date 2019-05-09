@@ -43,7 +43,6 @@ class AvangEmailApi_Autoloader
 
             $className = str_replace('_', '/', $class);
             $className = substr($className, 13);
-            //echo $className;exit();
             if (is_file($classFile = dirname(__FILE__) . '/'. $className.'.php')) {
                 require_once($classFile);
 
