@@ -111,7 +111,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      * Unsubscribe existing subscriber by email address
      *
      * @param string $listUid
-     * @param string emailAddress
+     * @param string $emailAddress
      * @return AvangEmailApi_Http_Response
      */
     public function unsubscribeByEmail($listUid, $emailAddress)
@@ -134,7 +134,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
     /**
      * Unsubscribe existing subscriber by email address from all lists
      *
-     * @param string emailAddress
+     * @param string $emailAddress
      * @return AvangEmailApi_Http_Response
      */
     public function unsubscribeByEmailFromAllLists($emailAddress)
@@ -168,7 +168,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      * Delete existing subscriber by email address
      *
      * @param string $listUid
-     * @param string emailAddress
+     * @param string $emailAddress
      * @return AvangEmailApi_Http_Response
      */
     public function deleteByEmail($listUid, $emailAddress)
