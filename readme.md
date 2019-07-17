@@ -52,6 +52,27 @@ print_r($response->body);
 echo '</pre>';
 
 /*===================================================================================*/
+$response = $endpoint->createBulk('LIST-UNIQUE-ID', array(
+	array(
+		'EMAIL'    => 'john.doe-1@doe.com',
+		'FNAME'    => 'John',
+		'LNAME'    => 'Doe'
+	),
+	array(
+		'EMAIL'    => 'john.doe-2@doe.com',
+		'FNAME'    => 'John',
+		'LNAME'    => 'Doe'
+	),
+	array(
+		'EMAIL'    => 'john.doe-3@doe.com',
+		'FNAME'    => 'John',
+		'LNAME'    => 'Doe'
+	)
+));
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
 ```
 
  Example: Get all lists
