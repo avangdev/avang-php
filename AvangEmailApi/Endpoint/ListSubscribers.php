@@ -75,6 +75,23 @@ class AvangEmailApi_Endpoint_ListSubscribers extends AvangEmailApi_Base
         return $response = $client->request();
     }
     /**
+	 * Create subscribers in bulk in the given list
+	 * 
+	 * @param string $listUid
+	 * @param array $data
+	 * @return AvangEmailApi_Http_Response
+	 */
+	public function createBulk($listUid, array $data)
+	{
+		$client = new AvangEmailApi_Http_Client(array(
+			'method'        => AvangEmailApi_Http_Client::METHOD_POST,
+			'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/bulk', (string)$listUid)),
+			'paramsPost'    => array('subscribers' => $data),
+		));
+		return $response = $client->request();
+	}
+
+    /**
      * Update existing subscriber in given list
      *
      * @param string $listUid
