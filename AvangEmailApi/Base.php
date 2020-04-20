@@ -252,8 +252,8 @@ class AvangEmailApi_Base
                 $asSetterName = str_replace('_', ' ', $name);
                 $asSetterName = ucwords($asSetterName);
                 $asSetterName = str_replace(' ', '', $asSetterName);
-                $asSetterName{0} = strtolower($asSetterName{0});
-                $param = property_exists($this, $asSetterName) ? $asSetterName : null;
+                $asSetterName[0] = strtolower($asSetterName[0]);
+                $param = (string)(property_exists($this, $asSetterName) ? $asSetterName : '');
             }
 
             if ($param) {
